@@ -16,7 +16,7 @@
 
   <h2>Summary</h2>
   <p>Storyboard is a Chrome extension that records a browser tab while you demonstrate a web app and turns the recording into a tutorial video. It records only after you start a recording, and it keeps your recordings and projects in your own browser. There are no Storyboard servers and no analytics.</p>
-  <p>Data leaves your device in one case only: when you choose to have Claude write captions. Step descriptions, and optionally screenshots, then go to Anthropic, either through the Claude API with your own key or through your own Claude Code installation. If you use template captions, nothing leaves your device.</p>
+  <p>The extension itself never sends data anywhere. If you install the optional Storyboard helper and connect an AI agent on your computer (such as Claude Code, Claude Desktop or Cursor), that agent can read and edit your projects when you ask it to. The agent may send what it reads to its AI provider under that provider's terms. Without an agent, nothing leaves your device.</p>
 
   <h2>What Storyboard records</h2>
   <p>Storyboard collects data only in the tab you are recording, from the moment you start until you stop. It records:</p>
@@ -40,17 +40,17 @@
   <p>Storyboard has no account system and no servers, so the developer never receives or holds a copy of your recordings or settings.</p>
 
   <h2>When data leaves your device</h2>
-  <p>Data leaves your device only when Claude writes captions, and only through the caption writer you choose in Settings:</p>
+  <p>The extension makes no network requests. Data leaves your browser only to AI agents you connect yourself, through the optional Storyboard helper app:</p>
   <table>
-    <thead><tr><th>Caption writer</th><th>What is sent</th><th>Sent to</th></tr></thead>
+    <thead><tr><th>Setup</th><th>What an agent can read</th><th>Where it goes</th></tr></thead>
     <tbody>
-      <tr><td>Templates</td><td>Nothing</td><td>Stays on your device</td></tr>
-      <tr><td>Claude API (your own API key)</td><td>Step descriptions, plus one screenshot per step if "Send step screenshots" is on</td><td>Anthropic, at api.anthropic.com</td></tr>
-      <tr><td>Claude Code (optional helper app)</td><td>Step descriptions and screenshots, handed to the Claude Code program on your computer</td><td>Anthropic, through your own Claude Code account</td></tr>
+      <tr><td>No helper installed (default)</td><td>Nothing</td><td>Stays in your browser</td></tr>
+      <tr><td>Helper installed, no agent connected</td><td>Nothing</td><td>Stays in your browser</td></tr>
+      <tr><td>Helper + an agent you connected</td><td>The projects you ask it to work on: step descriptions, captions and other edits, frames from the recording, and exported videos</td><td>The agent on your computer, and from there its AI provider</td></tr>
     </tbody>
   </table>
-  <p>A step description holds the action (click, type, key press), the element's label, the page title and address, and any text typed into an ordinary field. Password and other sensitive fields are never included.</p>
-  <p>Anthropic handles this data under its own terms and privacy policy, which apply to your API key or Claude Code account. Storyboard sends the data straight from your browser or your computer to Anthropic and never routes it through the developer.</p>
+  <p>A step description holds the action (click, type, key press), the element's label, the page title and address, and any text typed into an ordinary field. Password and other sensitive fields are never included. The helper talks to the extension and to agents only through a private connection on your computer; exports it saves go to the Storyboard folder in your Downloads.</p>
+  <p>Each agent and its AI provider handle data under their own terms and privacy policies. The developer of Storyboard never receives it.</p>
 
   <h2>What Storyboard does not do</h2>
   <ul>
@@ -70,7 +70,7 @@
       <tr><td>Offscreen document</td><td>Chrome requires it to run the video recorder in the background.</td></tr>
       <tr><td>Tabs</td><td>Names the project after the recorded page, saves the recording if that tab closes, and opens the editor.</td></tr>
       <tr><td>Storage, unlimited storage</td><td>Keeps settings, recordings and projects in your browser; recordings can be larger than the default storage limit.</td></tr>
-      <tr><td>Native messaging</td><td>Talks to the optional Claude Code helper app, if you install it.</td></tr>
+      <tr><td>Native messaging</td><td>Connects to the optional Storyboard helper app, if you install it, so AI agents on your computer can work on your projects.</td></tr>
     </tbody>
   </table>
 
@@ -78,10 +78,9 @@
   <ul>
     <li><strong>Delete a project</strong>: in the Library, delete it to remove its recording, interaction log and stored exports from your browser.</li>
     <li><strong>Delete everything</strong>: uninstalling Storyboard removes all its stored recordings, projects and settings from Chrome. Videos you exported to your downloads folder stay there.</li>
-    <li><strong>Keep captions offline</strong>: choose Templates as the caption writer, or turn off "Write captions with Claude when a new recording opens".</li>
-    <li><strong>Limit what Claude sees</strong>: turn off "Send step screenshots to Claude" to send step descriptions only.</li>
-    <li><strong>Remove your API key</strong>: clear the key field in Settings.</li>
-    <li><strong>Hide sensitive areas</strong>: use "Blur an element" while recording, or draw a blur area in the editor, before you export or share a video.</li>
+    <li><strong>Use no AI agent</strong>: don't install the helper. Captions then come from templates and nothing leaves your device.</li>
+    <li><strong>Disconnect agents</strong>: remove Storyboard from an agent's MCP settings, or run <code>storyboard-helper uninstall</code> to unregister the helper from your browsers.</li>
+    <li><strong>Hide sensitive areas</strong>: use "Blur an element" while recording, or draw a blur area in the editor, before you export, share, or let an agent work on a video.</li>
   </ul>
   <p>Recordings show whatever is on screen. Review a video before you share it.</p>
 
