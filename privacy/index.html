@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy · Storyboard</title>
+<meta name="description" content="How the Storyboard Chrome extension handles your data." />
+<link rel="icon" href="../icon.png" />
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<main>
+  <header><img src="../icon.png" alt="" /><a href="../">Storyboard</a></header>
+  <h1>Storyboard Privacy Policy</h1>
+  <p class="meta">Effective October 22, 2026</p>
+
+  <h2>Summary</h2>
+  <p>Storyboard is a Chrome extension that records a browser tab while you demonstrate a web app and turns the recording into a tutorial video. It records only after you start a recording, and it keeps your recordings and projects in your own browser. There are no Storyboard servers and no analytics.</p>
+  <p>Data leaves your device in one case only: when you choose to have Claude write captions. Step descriptions, and optionally screenshots, then go to Anthropic, either through the Claude API with your own key or through your own Claude Code installation. If you use template captions, nothing leaves your device.</p>
+
+  <h2>What Storyboard records</h2>
+  <p>Storyboard collects data only in the tab you are recording, from the moment you start until you stop. It records:</p>
+  <ul>
+    <li><strong>Video of the tab</strong>: whatever the page shows during the recording.</li>
+    <li><strong>Interactions</strong>: clicks, typing, special keys (such as Enter or Tab), scrolling and mouse movement, with timestamps.</li>
+    <li><strong>Element details</strong>: the label, type and on-screen position of elements you click or type into (for example, the button "Save settings").</li>
+    <li><strong>Typed text</strong> in ordinary fields, used to write captions such as "Type Buy milk".</li>
+    <li><strong>Page details</strong>: the address and title of each page you visit during the recording.</li>
+  </ul>
+  <p>Storyboard never reads the contents of password fields or of payment-card and one-time-code fields. These fields are blurred in the video automatically, and you can blur any other element while recording.</p>
+  <p>Outside a recording, Storyboard does not read pages or collect any data. Its page script stays inactive until you start a recording in that tab.</p>
+
+  <h2>Where your data is stored</h2>
+  <p>Everything stays in your browser, on your computer:</p>
+  <ul>
+    <li>Recordings, interaction logs and edited projects are kept in the extension's private browser storage. They remain until you delete the project or uninstall Storyboard.</li>
+    <li>Settings, including your Claude API key if you enter one, are kept in Chrome's local extension storage on this computer. They are not synced to your Google account.</li>
+    <li>Exported videos and subtitle files are saved to your computer's downloads folder, and a copy stays with the project.</li>
+  </ul>
+  <p>Storyboard has no account system and no servers, so the developer never receives or holds a copy of your recordings or settings.</p>
+
+  <h2>When data leaves your device</h2>
+  <p>Data leaves your device only when Claude writes captions, and only through the caption writer you choose in Settings:</p>
+  <table>
+    <thead><tr><th>Caption writer</th><th>What is sent</th><th>Sent to</th></tr></thead>
+    <tbody>
+      <tr><td>Templates</td><td>Nothing</td><td>Stays on your device</td></tr>
+      <tr><td>Claude API (your own API key)</td><td>Step descriptions, plus one screenshot per step if "Send step screenshots" is on</td><td>Anthropic, at api.anthropic.com</td></tr>
+      <tr><td>Claude Code (optional helper app)</td><td>Step descriptions and screenshots, handed to the Claude Code program on your computer</td><td>Anthropic, through your own Claude Code account</td></tr>
+    </tbody>
+  </table>
+  <p>A step description holds the action (click, type, key press), the element's label, the page title and address, and any text typed into an ordinary field. Password and other sensitive fields are never included.</p>
+  <p>Anthropic handles this data under its own terms and privacy policy, which apply to your API key or Claude Code account. Storyboard sends the data straight from your browser or your computer to Anthropic and never routes it through the developer.</p>
+
+  <h2>What Storyboard does not do</h2>
+  <ul>
+    <li>It does not sell, rent or share your data with anyone.</li>
+    <li>It does not use analytics, tracking, advertising or crash reporting.</li>
+    <li>It does not send data to servers run by the developer; there are none.</li>
+    <li>It does not use your data for anything except making your tutorial videos, and never to determine creditworthiness or for lending.</li>
+    <li>It does not load or run code from the internet. All of its code ships inside the extension.</li>
+  </ul>
+
+  <h2>Permissions and why they are needed</h2>
+  <table>
+    <thead><tr><th>Permission</th><th>Why Storyboard needs it</th></tr></thead>
+    <tbody>
+      <tr><td>Read and change data on all websites</td><td>You can record any web app, so the recording script must be able to run on the site you choose. It stays inactive until you start a recording in that tab.</td></tr>
+      <tr><td>Tab capture, active tab</td><td>Records the video of the tab you chose, only after you click Record or press the shortcut.</td></tr>
+      <tr><td>Offscreen document</td><td>Chrome requires it to run the video recorder in the background.</td></tr>
+      <tr><td>Tabs</td><td>Names the project after the recorded page, saves the recording if that tab closes, and opens the editor.</td></tr>
+      <tr><td>Storage, unlimited storage</td><td>Keeps settings, recordings and projects in your browser; recordings can be larger than the default storage limit.</td></tr>
+      <tr><td>Native messaging</td><td>Talks to the optional Claude Code helper app, if you install it.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Your choices and control</h2>
+  <ul>
+    <li><strong>Delete a project</strong>: in the Library, delete it to remove its recording, interaction log and stored exports from your browser.</li>
+    <li><strong>Delete everything</strong>: uninstalling Storyboard removes all its stored recordings, projects and settings from Chrome. Videos you exported to your downloads folder stay there.</li>
+    <li><strong>Keep captions offline</strong>: choose Templates as the caption writer, or turn off "Write captions with Claude when a new recording opens".</li>
+    <li><strong>Limit what Claude sees</strong>: turn off "Send step screenshots to Claude" to send step descriptions only.</li>
+    <li><strong>Remove your API key</strong>: clear the key field in Settings.</li>
+    <li><strong>Hide sensitive areas</strong>: use "Blur an element" while recording, or draw a blur area in the editor, before you export or share a video.</li>
+  </ul>
+  <p>Recordings show whatever is on screen. Review a video before you share it.</p>
+
+  <h2>Children</h2>
+  <p>Storyboard is a tool for people who build and document software. It is not directed at children under 13, and it does not knowingly collect their data.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, the new version will be posted at this address with a new effective date. Changes that affect how data leaves your device will also be noted in the extension's release notes.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy or about your data: <a href="mailto:wahyudotdev@gmail.com">wahyudotdev@gmail.com</a>.</p>
+
+  <footer><a href="../">Storyboard</a></footer>
+</main>
+</body>
+</html>
