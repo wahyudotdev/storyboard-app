@@ -16,7 +16,7 @@
 
   <h2>Summary</h2>
   <p>Storyboard is a Chrome extension that records a browser tab while you demonstrate a web app and turns the recording into a tutorial video. It records only after you start a recording, and it keeps your recordings and projects in your own browser. There are no Storyboard servers and no analytics.</p>
-  <p>The extension itself never sends data anywhere. If you install the optional Storyboard helper and connect an AI agent on your computer (such as Claude Code, Claude Desktop or Cursor), that agent can read and edit your projects when you ask it to. The agent may send what it reads to its AI provider under that provider's terms. Without an agent, nothing leaves your device.</p>
+  <p>The extension itself never sends data anywhere. If you connect an AI agent on your computer (such as Claude Code, Claude Desktop or Cursor) through the storyboard-mcp tool, that agent can read and edit your projects when you ask it to. The agent may send what it reads to its AI provider under that provider's terms. Without an agent, nothing leaves your device.</p>
 
   <h2>What Storyboard records</h2>
   <p>Storyboard collects data only in the tab you are recording, from the moment you start until you stop. It records:</p>
@@ -34,22 +34,22 @@
   <p>Everything stays in your browser, on your computer:</p>
   <ul>
     <li>Recordings, interaction logs and edited projects are kept in the extension's private browser storage. They remain until you delete the project or uninstall Storyboard.</li>
-    <li>There are no accounts, keys or settings to store. If you install the helper, its connection details stay in a private folder on your computer.</li>
+    <li>There are no accounts, keys or settings to store.</li>
     <li>Exported videos and subtitle files are saved to your computer's downloads folder, and a copy stays with the project.</li>
   </ul>
   <p>Storyboard has no account system and no servers, so the developer never receives or holds a copy of your recordings or settings.</p>
 
   <h2>When data leaves your device</h2>
-  <p>The extension makes no network requests. Data leaves your browser only to AI agents you connect yourself, through the optional Storyboard helper app:</p>
+  <p>The extension makes no requests to the internet. Data leaves your browser only to AI agents you connect yourself, over a local connection on your computer (127.0.0.1) to the storyboard-mcp tool:</p>
   <table>
     <thead><tr><th>Setup</th><th>What an agent can read</th><th>Where it goes</th></tr></thead>
     <tbody>
-      <tr><td>No helper installed (default)</td><td>Nothing</td><td>Stays in your browser</td></tr>
-      <tr><td>Helper installed, no agent connected</td><td>Nothing</td><td>Stays in your browser</td></tr>
-      <tr><td>Helper + an agent you connected</td><td>The projects you ask it to work on: step descriptions, captions and other edits, frames from the recording, and exported videos</td><td>The agent on your computer, and from there its AI provider</td></tr>
+      <tr><td>No agent set up (default)</td><td>Nothing</td><td>Stays in your browser</td></tr>
+      <tr><td>Agent set up but not running</td><td>Nothing</td><td>Stays in your browser</td></tr>
+      <tr><td>An agent you connected, while it runs</td><td>The projects you ask it to work on: step descriptions, captions and other edits, frames from the recording, and exported videos</td><td>The agent on your computer, and from there its AI provider</td></tr>
     </tbody>
   </table>
-  <p>A step description holds the action (click, type, key press), the element's label, the page title and address, and any text typed into an ordinary field. Password and other sensitive fields are never included. The helper talks to the extension and to agents only through a private connection on your computer; exports it saves go to the Storyboard folder in your Downloads.</p>
+  <p>A step description holds the action (click, type, key press), the element's label, the page title and address, and any text typed into an ordinary field. Password and other sensitive fields are never included. The connection stays on your computer and accepts only Chrome extensions and local programs, not websites. Exports go to the Storyboard folder in your Downloads.</p>
   <p>Each agent and its AI provider handle data under their own terms and privacy policies. The developer of Storyboard never receives it.</p>
 
   <h2>What Storyboard does not do</h2>
@@ -70,7 +70,7 @@
       <tr><td>Offscreen document</td><td>Chrome requires it to run the video recorder in the background.</td></tr>
       <tr><td>Tabs</td><td>Names the project after the recorded page, saves the recording if that tab closes, and opens the editor.</td></tr>
       <tr><td>Unlimited storage</td><td>Keeps recordings and projects in your browser; recordings can be larger than the default storage limit.</td></tr>
-      <tr><td>Native messaging</td><td>Connects to the optional Storyboard helper app, if you install it, so AI agents on your computer can work on your projects.</td></tr>
+      <tr><td>Alarms</td><td>Checks every 30 seconds whether an AI agent you set up has started, so it can connect.</td></tr>
     </tbody>
   </table>
 
@@ -78,8 +78,8 @@
   <ul>
     <li><strong>Delete a project</strong>: in the Library, delete it to remove its recording, interaction log and stored exports from your browser.</li>
     <li><strong>Delete everything</strong>: uninstalling Storyboard removes all its stored recordings, projects and settings from Chrome. Videos you exported to your downloads folder stay there.</li>
-    <li><strong>Use no AI agent</strong>: don't install the helper. Captions then come from templates and nothing leaves your device.</li>
-    <li><strong>Disconnect agents</strong>: remove Storyboard from an agent's MCP settings, or run <code>storyboard-helper uninstall</code> to unregister the helper from your browsers.</li>
+    <li><strong>Use no AI agent</strong>: don't add storyboard-mcp to any agent. Captions then come from templates and nothing leaves your device.</li>
+    <li><strong>Disconnect agents</strong>: remove Storyboard from an agent's MCP settings, or close the agent.</li>
     <li><strong>Hide sensitive areas</strong>: use "Blur an element" while recording, or draw a blur area in the editor, before you export, share, or let an agent work on a video.</li>
   </ul>
   <p>Recordings show whatever is on screen. Review a video before you share it.</p>
